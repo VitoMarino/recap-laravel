@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Sport;
 use Illuminate\Http\Request;
 
 class SportController extends Controller
@@ -13,6 +14,8 @@ class SportController extends Controller
     public function index()
     {
         //
+        $sportList = Sport::all();
+        return view('admin.sports.sport', compact('sportList'));
     }
 
     /**

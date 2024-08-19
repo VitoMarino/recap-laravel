@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Country;
 use Illuminate\Http\Request;
 
 class CountryController extends Controller
@@ -13,6 +14,8 @@ class CountryController extends Controller
     public function index()
     {
         //
+        $countryList = Country::all();
+        return view('admin.countries.country', compact('countryList'));
     }
 
     /**

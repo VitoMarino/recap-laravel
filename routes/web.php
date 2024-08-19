@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+use App\Http\Controllers\Admin\SportController;
 use App\Http\Controllers\HomeController as GuestHomeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,8 +29,8 @@ Route::get('/home', [GuestHomeController::class, 'index'])->name('home');
 Route::middleware('auth')->name('admin.')->prefix('admin/')->group(
     function () {
         // Qui sotto posso raggruppare e scrivere le mie rotte
-
-
+        Route::get('/sports', [SportController::class, 'index'])->name('sports.index');
+        Route::get('/countries', [SportController::class, 'index'])->name('countries.index')
         // Mi creo anche una risorsa
 
     }
