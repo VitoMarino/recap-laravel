@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\SportController;
 use App\Http\Controllers\HomeController as GuestHomeController;
@@ -30,8 +31,5 @@ Route::middleware('auth')->name('admin.')->prefix('admin/')->group(
     function () {
         // Qui sotto posso raggruppare e scrivere le mie rotte
         Route::get('/sports', [SportController::class, 'index'])->name('sports.index');
-        Route::get('/countries', [SportController::class, 'index'])->name('countries.index')
-        // Mi creo anche una risorsa
-
-    }
-);
+        Route::get('/countries', [CountryController::class, 'index'])->name('countries.index');
+    });
